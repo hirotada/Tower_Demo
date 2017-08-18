@@ -7,10 +7,15 @@
     group: name={{ user_name }} state=present
 
   - name: creating a user
-    user: name={{ user_name }} groups={{ user_name }} state=present
+    user:
+     name={{ user_name }}
+     group={{ user_name }} groups={{ user_name }}
+     state=present
 
   - name: configuring sudo for the user
-    lineinfile: dest=/etc/sudoers.d/{{ user_name }} line="{{ user_name }} ALL=(root) NOPASSWD:ALL" create=yes owner=root group=root mode=0440
+    lineinfile:
+      dest=/etc/sudoers.d/{{ user_name }}
+      line="{{ user_name }} ALL=(root) NOPASSWD:ALL" create=yes owner=root group=root mode=0440
 
   - name: putting authorized_key to the user
     authorized_key: user={{ user_name }} key="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDFpvujFDWXZMm8Wtq8kpWLLC45QJaa3dCNo0zi5XiLnnlDy+JzUlRqoRTbZc/ZSq1w+QDsBFZ8ASI9Lfc8Rte4iwBDmVgit/vJK9KqcOsNolSvo1j1GZ0lnA+yUQV4VeeTw8UamgYHWhxsejtoDaZr4FAelva5uHDRt78Lg9LVoRgpseEPzfwd6kwU/yhNb29r5rHq+yqtVjAc3qSE/Q7whAVqDo+Bg+izuXsZhdg/AyPt3P7AHif/wLXJflx2sAek6TyWofICde0fxvTvwE0BohOf3UQUA/Avhxf11lsgchR9enY8N3+keWRdfg7eWDt3XXjF8rZYHbiDa8wZNpCR hsasaki@dhcp-193-27.nrt.redhat.com"
