@@ -4,10 +4,10 @@
     user_name: ansbltwr
   tasks:
   - name: creating a group for the new user
-    group: name={{ user_name }} state: present
+    group: name={{ user_name }} state=present
 
   - name: creating a user
-    user: name={{ user_name }} groups={{ user_name }} state: present
+    user: name={{ user_name }} groups={{ user_name }} state=present
 
   - name: configuring sudo for the user
     lineinfile: dest=/etc/sudoers.d/{{ user_name }} line="{{ user_name }} ALL=(root) NOPASSWD:ALL" create=yes owner=root group=root mode=0440
