@@ -1,4 +1,5 @@
-- hosts: all
+---
+- hosts: local
   vars:
     hostname: test1
   tasks:
