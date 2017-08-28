@@ -20,7 +20,6 @@
         name: "{{ item.name }}"
         baseurl: "{{ item.url }}"
       with_items:
-  - { name: test1, user: test1, group: test }
         - { name: rhel-7-server-htb-rpms, url: https://cdn.redhat.com/content/htb/rhel/server/7/$basearch/os }
         - { name: rhel-7-server-tus-rpms, url: https://cdn.redhat.com/content/tus/rhel/server/7/$releasever/$basearch/os }
         - { name: rhel-7-rc-rpms, url: https://cdn.redhat.com/content/rc/rhel/server/7/x86_64/os }
