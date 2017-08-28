@@ -36,6 +36,7 @@
 
     - name: Create a new instance and attaches to a network
       os_server:
+        auth: "{{ os_auth }}"
         state: present
 #      cloud: openstack_demo
 #      auth:
