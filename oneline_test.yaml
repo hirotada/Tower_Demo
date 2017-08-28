@@ -3,5 +3,6 @@
   tasks:
     - name: Test of lineinfile module
       lineinfile:
+        create: yes
         path: /tmp/oneline_test
         line: 'Hello world'
