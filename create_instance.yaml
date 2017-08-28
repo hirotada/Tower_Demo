@@ -12,5 +12,4 @@
       flavor=m1.small
       config_drive=yes
       network=provider_network
-      meta:
-        hostname={{ hostname }}
+      meta="hostname={{ hostname }}"
