@@ -4,13 +4,13 @@
   tasks:
   - name: Create a new instance and attaches to a network
     os_server:
-      state: present
-      name: {{ hostname }}
-      image: rhel-server-7.4-x86_64-kvm.qcow2
-      key_name: ansbltwr
-      timeout: 200
-      flavor: m1.small
-      config_drive: yes
-      network: provider_network
+      state=present
+      name={ hostname }}
+      image=rhel-server-7.4-x86_64-kvm.qcow2
+      key_name=ansbltwr
+      timeout=200
+      flavor=m1.small
+      config_drive=yes
+      network=provider_network
       meta:
-        hostname: {{ hostname }}
+        hostname={{ hostname }}
