@@ -17,13 +17,15 @@
     - name: Disabling unnecessary repos
       yum_repository:
         enabled: no
-        name: "{{ item }}"
+        name: "{{ item.name }}"
+        baseurl: "{{ item.url }}"
       with_items:
-        - rhel-7-server-htb-rpms
-        - rhel-7-server-tus-rpms
-        - rhel-7-rc-rpms
-        - rhel-7-server-aus-rpms
-        - rhel-7-server-nfv-rpms
-        - rhel-7-server-rt-htb-rpms
-        - rhel-7-server-rt-rpms
-        - rhel-7-server-rt-beta-rpms
+  - { name: test1, user: test1, group: test }
+        - { name: rhel-7-server-htb-rpms, url: https://cdn.redhat.com/content/htb/rhel/server/7/$basearch/os }
+        - { name: rhel-7-server-tus-rpms, url: https://cdn.redhat.com/content/tus/rhel/server/7/$releasever/$basearch/os }
+        - { name: rhel-7-rc-rpms, url: https://cdn.redhat.com/content/rc/rhel/server/7/x86_64/os }
+        - { name: rhel-7-server-aus-rpms, url: https://cdn.redhat.com/content/aus/rhel/server/7/$releasever/$basearch/os }
+        - { name: rhel-7-server-nfv-rpms, url: https://cdn.redhat.com/content/dist/rhel/server/7/$releasever/$basearch/nfv/os }
+        - { name: rhel-7-server-rt-htb-rpms, url: https://cdn.redhat.com/content/htb/rhel/server/7/$basearch/rt/os }
+        - { name: rhel-7-server-rt-rpms, url: https://cdn.redhat.com/content/dist/rhel/server/7/$releasever/$basearch/rt/os }
+        - { name: rhel-7-server-rt-beta-rpms, url: https://cdn.redhat.com/content/beta/rhel/server/7/$basearch/rt/os }
