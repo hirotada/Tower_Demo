@@ -1,3 +1,6 @@
+###
+### Create an instance in OpenStack
+###
 ---
 - hosts: localhost
   gather_facts: false
@@ -38,12 +41,6 @@
       os_server:
         auth: "{{ os_auth }}"
         state: present
-#      cloud: openstack_demo
-#      auth:
-#        auth_url: http://192.168.17.131:5000/v2.0/
-#        username: demo
-#        password: demo
-#        project_name: demo
         name: "{{ host_name }}"
         image: rhel-server-7.4-x86_64-kvm.qcow2
         key_name: ansbltwr
