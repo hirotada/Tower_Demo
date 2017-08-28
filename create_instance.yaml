@@ -9,36 +9,48 @@
       auth_url: "{{ lookup('env', 'OS_AUTH_URL') }}"
       username: "{{ lookup('env', 'OS_USERNAME') }}"
       password: "{{ lookup('env', 'OS_PASSWORD') }}"
+
   tasks:
-  - name: Load Tower cloud credential config when it is present
-    include_vars: "{{ os_config_file }}"
-    when: os_config_file != ''
+    - name: Load Tower cloud credential config when it is present
+      include_vars: "{{ os_config_file }}"
+      when: os_config_file != ''
 
-  - name: Set necessary variables
-    set_fact:
-      os_auth:
-        auth_url: "{{ clouds.devstack.auth.auth_url }}"
-        username: "{{ clouds.devstack.auth.username }}"
-        password: "{{ clouds.devstack.auth.password }}"
-        project_name: "{{ clouds.devstack.auth.project_name }}"
+    - name: Set necessary variables when Tower cloud credential config is present
+      set_fact:
+        os_auth:
+          auth_url: "{{ clouds.devstack.auth.auth_url }}"
+          username: "{{ clouds.devstack.auth.username }}"
+          password: "{{ clouds.devstack.auth.password }}"
+          project_name: "{{ clouds.devstack.auth.project_name }}"
+      when: os_config_file != ''
 
-  - name: Create a new instance and attaches to a network
-    os_server:
-      state: present
+    - name: Fail if fallback environment variables are not set
+      fail:
+        msg: "missing required environment variable: '{{ item }}'"
+      when: os_config_file == '' and lookup('env', item) is undefined
+      with_items:
+        - OS_AUTH_URL
+        - OS_USERNAME
+        - OS_PASSWORD
+        - OS_PROJECT
+
+    - name: Create a new instance and attaches to a network
+      os_server:
+        state: present
 #      cloud: openstack_demo
 #      auth:
 #        auth_url: http://192.168.17.131:5000/v2.0/
 #        username: demo
 #        password: demo
 #        project_name: demo
-      name: "{{ host_name }}"
-      image: rhel-server-7.4-x86_64-kvm.qcow2
-      key_name: ansbltwr
-      security_groups: permit_all
-      timeout: 200
-      flavor: m1.small
-      config_drive: yes
-      network: provider_network
-      auto_ip: no
-      meta:
-        hostname: "{{ host_name }}"
+        name: "{{ host_name }}"
+        image: rhel-server-7.4-x86_64-kvm.qcow2
+        key_name: ansbltwr
+        security_groups: permit_all
+        timeout: 200
+        flavor: m1.small
+        config_drive: yes
+        network: provider_network
+        auto_ip: no
+        meta:
+          hostname: "{{ host_name }}"
