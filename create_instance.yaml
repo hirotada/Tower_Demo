@@ -19,5 +19,6 @@
       flavor: m1.small
       config_drive: yes
       network: provider_network
+      auto_ip: no
       meta:
         hostname: "{{ hostname }}"
