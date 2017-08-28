@@ -3,7 +3,17 @@
   gather_facts: false
   vars:
     host_name: test1
+    os_config_file: "{{ lookup('env', 'OS_CLIENT_CONFIG_FILE') }}"
+    os_auth:
+      project_name: "{{ lookup('env', 'OS_PROJECT') }}"
+      auth_url: "{{ lookup('env', 'OS_AUTH_URL') }}"
+      username: "{{ lookup('env', 'OS_USERNAME') }}"
+      password: "{{ lookup('env', 'OS_PASSWORD') }}"
   tasks:
+  - name: Load Tower cloud credential config when it is present
+    include_vars: "{{ os_config_file }}"
+    when: os_config_file != ''
+
   - name: Set necessary variables
     set_fact:
       os_auth:
