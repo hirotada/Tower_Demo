@@ -8,6 +8,7 @@
       name: "{{ hostname }}"
       image: rhel-server-7.4-x86_64-kvm.qcow2
       key_name: ansbltwr
+      security_groups: permit_all
       timeout: 200
       flavor: m1.small
       config_drive: yes
