@@ -4,10 +4,18 @@
   vars:
     host_name: test1
   tasks:
+  - name: Set necessary variables
+    set_fact:
+      os_auth:
+        auth_url: "{{ clouds.devstack.auth.auth_url }}"
+        username: "{{ clouds.devstack.auth.username }}"
+        password: "{{ clouds.devstack.auth.password }}"
+        project_name: "{{ clouds.devstack.auth.project_name }}"
+
   - name: Create a new instance and attaches to a network
     os_server:
       state: present
-      cloud: openstack_demo
+#      cloud: openstack_demo
 #      auth:
 #        auth_url: http://192.168.17.131:5000/v2.0/
 #        username: demo
