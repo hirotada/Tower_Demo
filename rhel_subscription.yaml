@@ -11,3 +11,5 @@
     - name: Configure repository
       yum_repository:
         name: rhel-7-server-rpms
+        description: Red Hat Enterprise Linux 7 Server (RPMs)
+        baseurl: https://cdn.redhat.com/content/dist/rhel/server/7/$releasever/$basearch/os
