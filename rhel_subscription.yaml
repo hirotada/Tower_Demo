@@ -18,12 +18,12 @@
       yum_repository:
         enabled: no
         name: "{{ item }}"
-        with_items:
-          - rhel-7-server-htb-rpms
-#          - rhel-7-server-tus-rpms
-#          - rhel-7-rc-rpms
-#          - rhel-7-server-aus-rpms
-#          - rhel-7-server-nfv-rpms
-#          - rhel-7-server-rt-htb-rpms
-#          - rhel-7-server-rt-rpms
-#          - rhel-7-server-rt-beta-rpms
+      with_items:
+        - rhel-7-server-htb-rpms
+        - rhel-7-server-tus-rpms
+        - rhel-7-rc-rpms
+        - rhel-7-server-aus-rpms
+        - rhel-7-server-nfv-rpms
+        - rhel-7-server-rt-htb-rpms
+        - rhel-7-server-rt-rpms
+        - rhel-7-server-rt-beta-rpms
