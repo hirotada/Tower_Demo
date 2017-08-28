@@ -1,0 +1,13 @@
+---
+- hosts: all
+
+  tasks:
+    - name: Install httpd
+      yum:
+        name: httpd
+        state: latest
+
+    - name: Starting httpd service
+      systemd:
+        name: httpd
+        state: started
