@@ -1,0 +1,7 @@
+---
+- hosts: all
+  tasks:
+    - name: Test of lineinfile module
+      lineinfile:
+        path: /tmp/oneline_test
+        line: 'Hello world'
