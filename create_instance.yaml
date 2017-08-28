@@ -6,6 +6,7 @@
   - name: Create a new instance and attaches to a network
     os_server:
       state: present
+      cloud: openstack_demo
 #      auth:
 #        auth_url: http://192.168.17.131:5000/v2.0/
 #        username: demo
