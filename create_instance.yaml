@@ -6,6 +6,11 @@
   - name: Create a new instance and attaches to a network
     os_server:
       state: present
+      auth:
+        auth_url: http://192.168.17.131:5000/v2.0/
+        username: demo
+        password: demo
+        project_name: demo
       name: "{{ hostname }}"
       image: rhel-server-7.4-x86_64-kvm.qcow2
       key_name: ansbltwr
