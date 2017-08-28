@@ -8,23 +8,23 @@
         password: ls!9Ev-3nOqU
         pool: 8a85f9815de88240015de93c42c9209a
 
-    - name: Configure repository
-      yum_repository:
-        name: rhel-7-server-rpms
-        description: Red Hat Enterprise Linux 7 Server (RPMs)
-        baseurl: https://cdn.redhat.com/content/dist/rhel/server/7/$releasever/$basearch/os
+#    - name: Configure repository
+#      yum_repository:
+#        name: rhel-7-server-rpms
+#        description: Red Hat Enterprise Linux 7 Server (RPMs)
+#        baseurl: https://cdn.redhat.com/content/dist/rhel/server/7/$releasever/$basearch/os
 
-    - name: Disabling unnecessary repos
-      yum_repository:
-        enabled: no
-        name: "{{ item.name }}"
-        baseurl: "https://cdn.redhat.com/content/{{ item.url }}"
-      with_items:
-        - { name: rhel-7-server-htb-rpms, url: htb/rhel/server/7/$basearch/os }
-        - { name: rhel-7-server-tus-rpms, url: tus/rhel/server/7/$releasever/$basearch/os }
-        - { name: rhel-7-rc-rpms, url: rc/rhel/server/7/x86_64/os }
-        - { name: rhel-7-server-aus-rpms, url: aus/rhel/server/7/$releasever/$basearch/os }
-        - { name: rhel-7-server-nfv-rpms, url: dist/rhel/server/7/$releasever/$basearch/nfv/os }
-        - { name: rhel-7-server-rt-htb-rpms, url: htb/rhel/server/7/$basearch/rt/os }
-        - { name: rhel-7-server-rt-rpms, url: dist/rhel/server/7/$releasever/$basearch/rt/os }
-        - { name: rhel-7-server-rt-beta-rpms, url: beta/rhel/server/7/$basearch/rt/os }
+#    - name: Disabling unnecessary repos
+#      yum_repository:
+#        enabled: no
+#        name: "{{ item.name }}"
+#        baseurl: "https://cdn.redhat.com/content/{{ item.url }}"
+#      with_items:
+#        - { name: rhel-7-server-htb-rpms, url: htb/rhel/server/7/$basearch/os }
+#        - { name: rhel-7-server-tus-rpms, url: tus/rhel/server/7/$releasever/$basearch/os }
+#        - { name: rhel-7-rc-rpms, url: rc/rhel/server/7/x86_64/os }
+#        - { name: rhel-7-server-aus-rpms, url: aus/rhel/server/7/$releasever/$basearch/os }
+#        - { name: rhel-7-server-nfv-rpms, url: dist/rhel/server/7/$releasever/$basearch/nfv/os }
+#        - { name: rhel-7-server-rt-htb-rpms, url: htb/rhel/server/7/$basearch/rt/os }
+#        - { name: rhel-7-server-rt-rpms, url: dist/rhel/server/7/$releasever/$basearch/rt/os }
+#        - { name: rhel-7-server-rt-beta-rpms, url: beta/rhel/server/7/$basearch/rt/os }
