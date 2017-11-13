@@ -4,8 +4,8 @@
     - name: Register a system to Red Hat
       redhat_subscription:
         state: present
-        username: 
-        password: 
+        username: hirotada.sasaki
+        password: ls!9Ev-3nOqU
         pool: 8a85f9815de88240015de93c42c9209a
 
 #    - name: Configure repository
