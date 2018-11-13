@@ -40,4 +40,4 @@
       os_server:
         auth: "{{ os_auth }}"
         state: absent
-        name: "{{ hosts }}"
+        name: "{{ inventory_hostname }}"
