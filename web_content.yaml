@@ -4,5 +4,5 @@
   tasks:
     - name: Checkout web contents from Github
       git:
-        repo: https://github.com/hirotada/Tower_Demo/html
+        repo: https://github.com/hirotada/Tower_Demo_WebContents
         dest: /var/www/html
