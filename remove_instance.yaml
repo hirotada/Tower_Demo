@@ -2,10 +2,9 @@
 ### Remove an instance in OpenStack
 ###
 ---
-- hosts: localhost
+- hosts: all
   gather_facts: false
   vars:
-    host_name: dummy_name
     os_config_file: "{{ lookup('env', 'OS_CLIENT_CONFIG_FILE') }}"
     os_auth:
       project_name: "{{ lookup('env', 'OS_PROJECT') }}"
@@ -41,4 +40,4 @@
       os_server:
         auth: "{{ os_auth }}"
         state: absent
-        name: "{{ host_name }}"
+        name: "{{ hosts }}"
