@@ -2,7 +2,7 @@
 ### Remove an instance in OpenStack
 ###
 ---
-- hosts: all
+- hosts: 
   gather_facts: false
   vars:
     os_config_file: "{{ lookup('env', 'OS_CLIENT_CONFIG_FILE') }}"
