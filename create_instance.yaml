@@ -42,13 +42,13 @@
         auth: "{{ os_auth }}"
         state: present
         name: "{{ host_name }}"
-        image: rhel-server-7.4-x86_64-kvm.qcow2
-        key_name: ansbltwr
-        security_groups: permit_all
+        image: CentOS-7-1809
+        key_name: demo
+        security_groups: default
         timeout: 200
         flavor: m1.small
         config_drive: yes
-        network: provider_network
+        network: public
         auto_ip: no
         meta:
           hostname: "{{ host_name }}"
